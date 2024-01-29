@@ -1,0 +1,124 @@
+---
+title: "Lab-3: Lists"
+subtitle: "Stat 133"
+author: "JP Garcia"
+format: 
+  html:
+    toc: true
+    number-sections: true
+    theme: simplex
+embed-resources: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+```
+
+
+::: {.callout-note icon=false}
+
+## General Instructions
+
+-   Use the template file `lab03-template.qmd` to answer the questions.
+
+-   Rename this file as `lab03-first-last.qmd`, where `first` and `last`
+    are your first and last names (e.g. `lab03-gaston-sanchez.qmd`).
+
+-   Submit both your qmd and HTML files to the corresponding assignment
+    submission in bCourses.
+
+:::
+
+
+-----
+
+
+# Vector vs List
+
+In your own words, explain what the key difference is between an R vector and an R list.
+
+
+__Your Answer:__
+```{r}
+#A vector's elements must all be of the same type, whereas lists can concern themselves with any type of data and concatenate them 
+```
+
+
+
+-----
+
+
+# Subsetting
+
+Consider the following list:
+
+```{r}
+list_example = list("letter"=c("A", "B", "C"), "value"=c(10, 50, 20))
+list_example
+```
+
+(a) What is the difference between `list_example["letter"]` and `list_example[["letter"]]`? 
+Explain.
+
+__Your Answer:__ 
+```{r}
+#This would go ahead and return the same output of A B C, but it includes the categorical lable of "$letter"
+```
+
+
+
+(b) What does `list_example$letter[3]` return? Why?
+
+__Your Answer:__ 
+```{r}
+#It would return C, This would go through the list_example list and select the third value in the letter vector 
+```
+
+
+(c) What does the command `list_example$value = NULL` do? Explain.
+
+
+__Your Answer:__ 
+```{r}
+#This command would turn the value vector in our original list into null values, or remove them as a whole
+```
+
+
+-----
+
+
+# Subsetting Commands for Matrix
+
+Consider the matrix `matrix = matrix(letters[1:15], 3, 5)` for the following questions. 
+
+For each of the following 
+parts, write a subsetting command that produce the given outputs:
+
+a) `"e"`
+
+```{r}
+matrix = matrix(letters[1:15], 3, 5)
+matrix
+
+matrix[2,2]
+```
+
+<br>
+
+b) Matrix 2x2 with `"e", "h"` as a first row and `"f", "i"` as a second row
+
+```{r}
+matrix
+matrix[2:3, 2:3]
+
+```
+
+<br>
+
+c) Vector `"a" "g" "m"`. Hint: the `seq()` function is your friend.
+
+```{r}
+matrix[1, c(1, 3, 5)]
+#we can pull the values from the 1,3,5 indexes of the first row. I could not figure out how to use seq()
+
+```
